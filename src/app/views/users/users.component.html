@@ -1,0 +1,10 @@
+<div [ngClass]="userModalCreatorVisible ? 'blur' : ''">
+  <app-table
+  [cols]="userTableCols"
+  [httpRequestCB]="this.userService.getUsers()"
+  (addEvent)="showDialog()"
+></app-table>
+</div>
+<p-dialog header="Add User" [modal]="true" [(visible)]="userModalCreatorVisible" position="top" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+  <app-user-modal-creator></app-user-modal-creator>
+</p-dialog>
